@@ -1,0 +1,61 @@
+{
+  "version": "2.0",
+  "app_name": "dynamodb-redshift",
+
+  "environment_variables": {
+    "lambda_timeout": 900,
+    "lambda_memory_size": 1024,
+    "DEFAULT_REGION": "us-east-1"
+  },
+
+  "stages": {
+    "dev": {
+      "app_name": "dev-dynamo-redshift",
+      "api_gateway_stage": "dev",
+      "environment_variables": {
+        "AWS_STAGE_ENV": "dev",
+        "S3_BUCKET": "dev-s3-bucket",
+        "S3_BUCKET_PREFIX": "dev/",
+        "REDSHIFT_CLUSTER": "redshift-cluster",
+        "REDSHIFT_DATABASE": "redshift-database",
+        "REDSHIFT_TARGET_SCHEMA": "redshift-schema",
+        "REDSHIFT_USERNAME": "username",
+        "REDSHIFT_PASSWORD": "password",
+        "REDSHIFT_HOSTNAME": "hostname",
+        "REDSHIFT_PORT": "port"
+      }
+    },
+    "uat": {
+      "app_name": "uat-dynamo-redshift",
+      "api_gateway_stage": "uat",
+      "environment_variables": {
+        "AWS_STAGE_ENV": "uat",
+        "S3_BUCKET": "dev-s3-bucket",
+        "S3_BUCKET_PREFIX": "uat/",
+        "REDSHIFT_CLUSTER": "redshift-cluster",
+        "REDSHIFT_DATABASE": "redshift-database",
+        "REDSHIFT_TARGET_SCHEMA": "redshift-schema",
+        "REDSHIFT_USERNAME": "username",
+        "REDSHIFT_PASSWORD": "password",
+        "REDSHIFT_HOSTNAME": "hostname",
+        "REDSHIFT_PORT": "port"
+      }
+    },
+    "prod": {
+      "app_name": "dynamo-redshift",
+      "api_gateway_stage": "api",
+      "environment_variables": {
+        "AWS_STAGE_ENV": "prod",
+        "S3_BUCKET": "s3-bucket",
+        "S3_BUCKET_PREFIX": "",
+        "REDSHIFT_CLUSTER": "redshift-cluster",
+        "REDSHIFT_DATABASE": "redshift-database",
+        "REDSHIFT_TARGET_SCHEMA": "redshift-schema",
+        "REDSHIFT_USERNAME": "username",
+        "REDSHIFT_PASSWORD": "password",
+        "REDSHIFT_HOSTNAME": "hostname",
+        "REDSHIFT_PORT": "port"
+      }
+    }
+  }
+}

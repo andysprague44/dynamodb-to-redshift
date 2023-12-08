@@ -1,0 +1,46 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Chalice: Local (conda)",
+            "type": "python",
+            "request": "launch",
+            "program": "${env:CONDA_PREFIX}/envs/dynamo-stream-redshift/bin/chalice",
+            "args": [
+                "local",
+                "--stage",
+                "prd",
+                "--no-autoreload",
+            ],
+            "cwd": "${workspaceFolder}/src/runtime",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Chalice: Local (venv)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/venv/bin/chalice",
+            "args": [
+                "local",
+                "--stage",
+                "dev",
+                "--no-autoreload",
+            ],
+            "cwd": "${workspaceFolder}/src/runtime",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

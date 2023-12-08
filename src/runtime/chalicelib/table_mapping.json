@@ -1,0 +1,31 @@
+{
+    "SomeDynamoDbTable": {
+        "redshift_table": "SomeTargetRedshiftTable",
+        "pk": "PK",
+        "sk": "SK",
+        "format_time": "TIMEFORMAT 'auto'",
+        "jsonpaths": [
+            "$['Item']['PK']['S']",
+            "$['Item']['SK']['S']",
+            "$['Item']['some_text']['S']",
+            "$['Item']['some_id']['S']",
+            "$['Item']['some_nested_info']['M']['some_decimal']['N']",
+            "$['Item']['is_active']['BOOL']"
+        ]
+    },
+    "AnotherDynamoDbTable": {
+        "redshift_table": "AnotherTargetRedshiftTable",
+        "pk": "PK",
+        "sk": "SK",
+        "format_time": "TIMEFORMAT 'auto'",
+        "jsonpaths": [
+            "$['Item']['PK']['S']",
+            "$['Item']['SK']['S']",
+            "$['Item']['some_more_text']['S']",
+            "$['Item']['another_id']['S']",
+            "$['Item']['order_confirmed']['BOOL']",
+            "$['Item']['some_nested_info']['M']['another_decimal']['N']",
+            "$['Item']['is_active']['BOOL']"
+        ]
+    }
+}

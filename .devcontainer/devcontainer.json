@@ -1,0 +1,53 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/anaconda
+{
+	"name": "Anaconda (dynamo-redshift)",
+	
+	// "image": "python:3.9.18-bookworm",
+	"build": { 
+		"context": "..",
+		"dockerfile": "Dockerfile"
+	},
+
+	// Features to add to the dev container. More info: https://containers.dev/feature
+	"features": {
+		//"ghcr.io/devcontainers/features/aws-cli:1": {"version": "1.0.3"},
+		//"ghcr.io/devcontainers/features/node:1": {"version": "21.10.0"}, //Node.js (via nvm), yarn and pnpm
+		//"ghcr.io/devcontainers/features/conda:1": {"version": "1.0.6"}
+		//"ghcr.io/devcontainers-contrib/features/aws-cdk:2": {"version": "2.0.14"}
+	},
+
+	//Load env variables
+	"runArgs": [
+        "--env-file", "${localWorkspaceFolder}/.env"
+    ], 
+
+	//Use AWS credentials from host machine
+	"mounts": [
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/root/.aws,type=bind"
+	],
+	
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": ["python --version"],
+	
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Boto3typed.boto3-ide",
+				"ms-python.python",
+				"ms-python.black-formatter",
+				"amazonwebservices.aws-toolkit-vscode"
+				// "GitHub.copilot",
+				// "GitHub.copilot-chat",
+				// "eamodio.gitlens",
+			]
+		}
+	},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root"
+}

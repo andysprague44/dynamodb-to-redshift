@@ -1,0 +1,12 @@
+{
+    "full_export": {
+        "dev": ["SomeDynamoDbTable"],
+        "uat": ["SomeDynamoDbTable"],
+        "prod": ["SomeDynamoDbTable"]
+    },
+    "incremental_export": {
+        "dev": ["AnotherDynamoDbTable"],
+        "uat": ["AnotherDynamoDbTable"],
+        "prod": ["AnotherDynamoDbTable"]
+    }
+}
